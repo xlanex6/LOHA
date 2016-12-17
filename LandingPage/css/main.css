@@ -1,0 +1,105 @@
+@font-face{
+    font-family: "FuturaRound-Bold";
+    src: url('font/FuturaRound-Bold.otf');
+}
+@font-face{
+    font-family: "FuturaRound-Medium";
+    src: url('font/FuturaRound-Medium.otf');
+}
+@font-face{
+    font-family: "FuturaRound-Book";
+    src: url('font/FuturaRound-Book.otf');
+}
+
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
+}
+
+.header {
+  height: 100vh;
+  background-size: cover !important;
+  text-align: center;
+
+}
+
+.header h1 {
+  font-size: 55px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-family: "FuturaRound-Bold", Helvetica, Arial;
+  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+}
+.header p {
+  font-size: 30px;
+  color: white;
+  color: rgb(210, 210, 210);
+  margin-bottom: 20px;
+  text-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4);
+  font-family: "FuturaRound-Book", Helvetica, Arial;
+}
+
+.logo {
+  height: 100px;
+  margin-bottom: 240px;
+}
+
+input#mce-EMAIL {
+	font-family: "FuturaRound-Book", Helvetica, Arial !important;
+	font-size: 23px !important;
+	padding: 28px 12px 23px 20px !important;
+	line-height: 30px !important;
+	background: rgba(255, 255, 255, .7) !important;
+	backdrop-filter: blur(8px) !important;
+	-webkit-backdrop-filter: blur(8px) !important;
+	-moz-backdrop-filter: blur(8px) !important;
+	-o-backdrop-filter: blur(8px) !important;
+	transition: all ease .3s !important;
+	-webkit-transition: all ease .3s !important;
+	-moz-transition: all ease .3s !important;
+	-o-transition: all ease .3s !important;
+}
+input#mce-EMAIL:hover {
+	background: rgba(255, 255, 255, .9) !important;
+	}
+
+input#mc-embedded-subscribe, .btn, .btn-warning {
+	font-family: "FuturaRound-Medium", Helvetica, Arial;
+	font-size: 18px;
+	letter-spacing: .7px;
+	margin-left: 10px;
+	text-transform: uppercase;
+	padding: 28px 12px 23px 20px;
+	line-height: 0px;
+	transition: all ease .3s;
+	-webkit-transition: all ease .3s;
+	-moz-transition: all ease .3s;
+	-o-transition: all ease .3s;
+	background: rgba(255, 159, 0, 1);
+}
+input#mc-embedded-subscribe:hover, .btn:hover, .btn-warning:hover {
+	background: rgba(255, 189, 0, 1);
+}
+
+.profil {
+    font-size: 27px !important;
+    margin-top: 20px;
+    padding: 30px 14px 25px 22px !important;
+}
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgba(20, 61, 55, .8);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: rgba(20, 61, 55, .8);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: rgba(20, 61, 55, .8);
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: rgba(20, 61, 55, .8);
+}
