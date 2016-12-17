@@ -1,1 +1,5 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Project Loha.fr
+
+Artist plateform
+
+[Trello SCRUM](https://trello.com/b/kqjGKoju/www)
