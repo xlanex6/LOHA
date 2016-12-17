@@ -20,6 +20,11 @@ gem 'devise-i18n'
 gem 'omniauth-facebook'
 
 
+group :production do
+  gem 'rails_12factor'
+end
+
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
