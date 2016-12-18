@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+#User
+user =  User.create{
+          email: "alex@gmail.com"
+          password: "123soleil"
+        }
+
+user.save
+
+
+# Tags
+tags = %w(HipHop Classic Bidon Dance Break Top)
