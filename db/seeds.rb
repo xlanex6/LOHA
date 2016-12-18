@@ -17,3 +17,5 @@ user.save
 
 # Tags
 tags = %w(HipHop Classic Bidon Dance Break Top)
+
+# Category
