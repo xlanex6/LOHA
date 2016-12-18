@@ -1,4 +1,4 @@
 class Categorizing < ApplicationRecord
-  belongs_to :users
-  belongs_to :categorys
+  belongs_to :user
+  belongs_to :category
 end
