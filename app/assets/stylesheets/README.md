@@ -53,19 +53,19 @@ Look at your main `application.scss` file to see how SCSS files are imported.
 
 ```scss
 // Graphical variables
-@import "config/variables";
-@import "config/bootstrap_variables";
+@import "config/variables"
+@import "config/bootstrap_variables"
 
 // External libraries
-@import "bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
+@import "bootstrap"
+@import "font-awesome-sprockets"
+@import "font-awesome"
 
 // Your CSS
-@import "layout/index";
-@import "components/index";
-@import "pages/index";
-@import "vendor/index";
+@import "layout/index"
+@import "components/index"
+@import "pages/index"
+@import "vendor/index"
 ```
 
 For every folder (**`components`**, **`layout`**, **`pages`**, **`vendor`**), there is one `_index.scss` partial which is responsible for importing all the other partials of its folder.
@@ -74,19 +74,19 @@ For every folder (**`components`**, **`layout`**, **`pages`**, **`vendor`**), th
 
 ```scss
 // pages/_index.scss
-@import "home";
-@import "contact";
+@import "home"
+@import "contact"
 ```
 
 **Example 2**: Let's say you add a new `_sidebar.scss` file in **`layout`** then modify `layout/_index.scss` as:
 
 ```scss
 // layout/_index.scss
-@import "base";
-@import "utilities";
-@import "footer";
-@import "navbar";
-@import "sidebar";
+@import "base"
+@import "utilities"
+@import "footer"
+@import "navbar"
+@import "sidebar"
 ```
 
 ## Navbar template
