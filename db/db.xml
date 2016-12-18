@@ -37,7 +37,7 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="412" y="98" name="users">
+</datatypes><table x="1441" y="228" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -79,17 +79,9 @@
 <row name="looking_for" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
-<row name="tags_id" null="1" autoincrement="0">
-<datatype>TINYINT</datatype>
-<default>NULL</default><relation table="tags" row="id" />
-</row>
-<row name="category_id" null="1" autoincrement="0">
-<datatype>TINYINT</datatype>
-<default>NULL</default><relation table="categories" row="id" />
-</row>
 <row name="DE" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
-</row>
+<default>NULL</default></row>
 <row name="BE" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -129,7 +121,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="967" y="79" name="videos">
+<table x="499" y="99" name="videos">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -140,7 +132,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1004" y="217" name="images">
+<table x="480" y="247" name="images">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -151,21 +143,50 @@
 <part>id</part>
 </key>
 </table>
-<table x="802" y="627" name="tags">
+<table x="1044" y="323" name="taggings">
+<row name="id" null="1" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="user_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="tag_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="tags" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1052" y="490" name="categorings">
+<row name="id" null="1" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="user_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="category_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="category" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1751" y="404" name="types">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
-<row name="new field" null="1" autoincrement="0">
-<datatype>TINYINT</datatype>
-<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="636" y="690" name="categories">
+<table x="831" y="357" name="tags">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -176,7 +197,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="773" y="321" name="types">
+<table x="815" y="529" name="category">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
