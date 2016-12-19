@@ -4,9 +4,7 @@ class User < ApplicationRecord
 
   has_many :taggings
   has_many :tags, through: :taggings
-
-  belongs_to :certificate
-
+  belongs_to :certificate, required: false
   has_many :categorizings
   has_many :categories, through: :categorizings
 
