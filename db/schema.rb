@@ -10,10 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161217212844) do
+ActiveRecord::Schema.define(version: 20161219180916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categorizings", force: :cascade do |t|
+    t.integer  "users_id"
+    t.integer  "categories_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["categories_id"], name: "index_categorizings_on_categories_id", using: :btree
+    t.index ["users_id"], name: "index_categorizings_on_users_id", using: :btree
+  end
+
+  create_table "certificates", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "users_id"
+    t.integer  "tags_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tags_id"], name: "index_taggings_on_tags_id", using: :btree
+    t.index ["users_id"], name: "index_taggings_on_users_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -35,8 +71,15 @@ ActiveRecord::Schema.define(version: 20161217212844) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.integer  "certificates_id"
+    t.index ["certificates_id"], name: "index_users_on_certificates_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "categorizings", "categories", column: "categories_id"
+  add_foreign_key "categorizings", "users", column: "users_id"
+  add_foreign_key "taggings", "tags", column: "tags_id"
+  add_foreign_key "taggings", "users", column: "users_id"
+  add_foreign_key "users", "certificates", column: "certificates_id"
 end

@@ -5,3 +5,44 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "Cleanning"
+
+Category.destroy_all
+Certificate.destroy_all
+
+#User
+# user =  User.create(
+#           email:"alex@gmail.com",
+#           password:"123soleil"
+#         )
+#
+# user.save
+#
+#
+# # Tags
+# tags = %w()
+
+# Category
+puts "Creation des categories"
+cat = %w(Hip-Hop Classique Jazz Salon Electrique Contemporain Monde Rock Expérimental Cabaret)
+
+cat.each do |c|
+  Category.create(
+    name:"#{c}"
+  )
+end
+
+# certification
+puts "Creation des diplomes"
+certif = %w(DE BE Bafa)
+certif.each do |c|
+  Certificate.create(
+    name:"#{c}"
+  )
+end
+
+
+######   ALLL GOOD ######
+
+puts "Seed completed"
