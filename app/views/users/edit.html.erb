@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-2-offset">
+      <%= simple_form_for @user, :url => user_path, :method => :patch do |f| %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :types_id, collection: Type.all, as: :radio_buttons %>
+        <%= f.input :certificates_id, collection: Certificate.all, as: :radio_buttons %>
+        <%= f.input :telephone %>
+        <%= f.input :address %>
+        <%= f.input :compagny_name %>
+        <%= f.input :hourly_rate %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
