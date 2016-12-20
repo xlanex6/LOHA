@@ -2,9 +2,13 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
+  belongs_to :certificate, required: false
+
+  belongs_to :type, required: false
+
   has_many :taggings
   has_many :tags, through: :taggings
-  belongs_to :certificate, required: false
+
   has_many :categorizings
   has_many :categories, through: :categorizings
 

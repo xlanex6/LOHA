@@ -10,6 +10,7 @@ puts "Cleanning"
 
 Category.destroy_all
 Certificate.destroy_all
+Type.destroy_all
 
 #User
 # user =  User.create(
@@ -20,20 +21,30 @@ Certificate.destroy_all
 # user.save
 #
 #
-# # Tags
-# tags = %w()
+
+
+#   Tags
+tags = %w()
 
 # Category
 puts "Creation des categories"
 cat = %w(Hip-Hop Classique Jazz Salon Electrique Contemporain Monde Rock Expérimental Cabaret)
-
 cat.each do |c|
   Category.create(
     name:"#{c}"
   )
 end
 
-# certification
+# Types
+puts "Creation des types"
+cat = %w(Danseur Structure Compagnie)
+cat.each do |c|
+  Type.create(
+    name:"#{c}"
+  )
+end
+
+# Certification
 puts "Creation des diplomes"
 certif = %w(DE BE Bafa)
 certif.each do |c|
