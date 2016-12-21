@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def show
+    @certificate = Certificate.find(@user.certificates_id)
+    @type = Type.find(@user.types_id)
   end
 
   def edit
@@ -18,7 +20,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(  :first_name,
+    params.require(:user).permit(   :first_name,
                                     :last_name,
                                     :certificates_id,
                                     :types_id,
