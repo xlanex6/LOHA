@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @certificate = Certificate.find(@user.certificates_id)
     @type = Type.find(@user.types_id)
+    @user_cat = UserCategory.where(user_id: @user)
   end
 
   def edit
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
                                     :last_name,
                                     :certificates_id,
                                     :types_id,
+                                    {category_ids: []},
                                     :telephone,
                                     :address,
                                     :compagny_name,

@@ -27,13 +27,13 @@ Type.destroy_all
 tags = %w()
 
 # Category
-puts "Creation des categories"
-cat = %w(Hip-Hop Classique Jazz Salon Electrique Contemporain Monde Rock Expérimental Cabaret)
-cat.each do |c|
-  Category.create(
-    name:"#{c}"
-  )
-end
+  puts "Creation des categories"
+    cat = %w(Hip-Hop Classique Jazz Salon Electrique Contemporain Monde Rock Expérimental Cabaret)
+    cat.each do |c|
+      Category.create(
+        name:"#{c}"
+      )
+    end
 
 # Types
 puts "Creation des types"

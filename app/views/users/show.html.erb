@@ -6,13 +6,20 @@
     <%= @user.compagny_name %><br/>
     <%= @user.hourly_rate %> $ par heure<br/>
     <%= @user.address %><br/>
-    <%= @user.first_name %><br/>
     <br>
     <br>
     <%= @certificate.name %><br/>
     <br>
     <br>
     <%= @type.name %><br/>
+    <br><br><br>
+    <ul>
+      <% @user_cat.each do |user_cat| %>
+      <li><%= user_cat.category.name %></li>
+      <% end %>
+    </ul>
+
+
 
 
   </div>

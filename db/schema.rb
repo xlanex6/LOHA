@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220201933) do
+ActiveRecord::Schema.define(version: 20170108155709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,31 +21,7 @@ ActiveRecord::Schema.define(version: 20161220201933) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categorizings", force: :cascade do |t|
-    t.integer  "users_id"
-    t.integer  "categories_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["categories_id"], name: "index_categorizings_on_categories_id", using: :btree
-    t.index ["users_id"], name: "index_categorizings_on_users_id", using: :btree
-  end
-
   create_table "certificates", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "taggings", force: :cascade do |t|
-    t.integer  "users_id"
-    t.integer  "tags_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tags_id"], name: "index_taggings_on_tags_id", using: :btree
-    t.index ["users_id"], name: "index_taggings_on_users_id", using: :btree
-  end
-
-  create_table "tags", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -55,6 +31,15 @@ ActiveRecord::Schema.define(version: 20161220201933) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_categories", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_user_categories_on_category_id", using: :btree
+    t.index ["user_id"], name: "index_user_categories_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -89,10 +74,8 @@ ActiveRecord::Schema.define(version: 20161220201933) do
     t.index ["types_id"], name: "index_users_on_types_id", using: :btree
   end
 
-  add_foreign_key "categorizings", "categories", column: "categories_id"
-  add_foreign_key "categorizings", "users", column: "users_id"
-  add_foreign_key "taggings", "tags", column: "tags_id"
-  add_foreign_key "taggings", "users", column: "users_id"
+  add_foreign_key "user_categories", "categories"
+  add_foreign_key "user_categories", "users"
   add_foreign_key "users", "certificates", column: "certificates_id"
   add_foreign_key "users", "types", column: "types_id"
 end

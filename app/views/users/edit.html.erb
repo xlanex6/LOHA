@@ -10,6 +10,7 @@
         <%= f.input :address %>
         <%= f.input :compagny_name %>
         <%= f.input :hourly_rate %>
+        <%= f.association :categories, as: :check_boxes %>
         <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>
     </div>

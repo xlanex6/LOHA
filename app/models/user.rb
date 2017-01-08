@@ -6,11 +6,8 @@ class User < ApplicationRecord
 
   belongs_to :type, required: false
 
-  has_many :taggings
-  has_many :tags, through: :taggings
-
-  has_many :categorizings
-  has_many :categories, through: :categorizings
+  has_many :user_categories
+  has_many :categories, through: :user_categories
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
