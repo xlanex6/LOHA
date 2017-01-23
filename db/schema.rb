@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161217212844) do
+ActiveRecord::Schema.define(version: 20170108155709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "certificates", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_categories", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_user_categories_on_category_id", using: :btree
+    t.index ["user_id"], name: "index_user_categories_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -35,8 +62,20 @@ ActiveRecord::Schema.define(version: 20161217212844) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.integer  "certificates_id"
+    t.integer  "types_id"
+    t.string   "telephone"
+    t.string   "address"
+    t.string   "compagny_name"
+    t.integer  "hourly_rate"
+    t.index ["certificates_id"], name: "index_users_on_certificates_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["types_id"], name: "index_users_on_types_id", using: :btree
   end
 
+  add_foreign_key "user_categories", "categories"
+  add_foreign_key "user_categories", "users"
+  add_foreign_key "users", "certificates", column: "certificates_id"
+  add_foreign_key "users", "types", column: "types_id"
 end
